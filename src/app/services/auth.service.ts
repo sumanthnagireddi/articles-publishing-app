@@ -53,7 +53,7 @@ export class AuthService {
     return from(promise).pipe(
       map((response: any) => response),
       switchMap(response =>
-        this.createAccountInFirestore({ userUid: response.user.uid, email, username: response.user.displayName || '', joinedOn: response.user.metadata.creationTime, photoUrl: response.user.photoURL }).pipe(
+        this.createAccountInFirestore({ userUid: response.user.uid, email, username: response.user.email || '', joinedOn: response.user.metadata.creationTime, photoUrl: response.user.photoURL }).pipe(
           map(() => response)
         )
       ),

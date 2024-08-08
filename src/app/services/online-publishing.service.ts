@@ -14,7 +14,6 @@ export class OnlinePublishingService {
     const articleRef = collection(this.firestore, 'articles');
     const articlesQuery = query(articleRef, where("status", "==", 'published'));
     return from(getDocs(articlesQuery)).pipe(
-      // tap(querySnapShot => console.log(querySnapShot)),
       map(querySnapshot =>
         querySnapshot.docs.map(doc => doc.data())
       )
@@ -24,12 +23,8 @@ export class OnlinePublishingService {
   //gets my account
   getMyAccount(userId: any): Observable<any> {
     const userAccountRef = doc(this.firestore, 'userAccounts', userId);
-    // console.log(userAccountRef);
-
     return from(getDoc(userAccountRef)).pipe(
       map(doc => {
-        // console.log(doc.data());
-
         return doc.data()
       }))
   }

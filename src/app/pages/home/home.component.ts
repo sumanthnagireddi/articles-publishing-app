@@ -41,6 +41,7 @@ export class HomeComponent {
       if (data) {
         this.currentuser = data
         this.articleService.getAllArticles().subscribe(data => {
+          this.currentFeaturedBlog = data[0]
           this.popular_blogs = data
           this.totalPages = Math.ceil(this.popular_blogs.length / this.pageSize);
           const sortedBlogs: any = this.popular_blogs.sort((a: any, b: any) => b.views - a.views);

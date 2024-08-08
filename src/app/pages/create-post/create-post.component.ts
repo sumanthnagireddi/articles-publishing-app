@@ -114,6 +114,8 @@ export class CreatePostComponent {
     if (payload.title && payload.description) {
       this.articleService.createArticle(category, payload).subscribe((data) => {
         this.toastService.addToToast({ type: ToastType.success, message: `Article ${category} Succesfully!!` })
+        this.articleForm.reset();
+        this.isBasicDetailsFilled=false;
       });
     } else {
       this.toastService.addToToast({ type: ToastType.error, message: `Please fill some basic details and then draft your article!!` })
