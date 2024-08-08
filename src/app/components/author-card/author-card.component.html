@@ -1,0 +1,41 @@
+<!-- <article class="container card">
+    <img alt="" [src]="'https://flowbite.com/docs/images/blog/image-4.jpg'" class="image card" />
+    <div style="padding: 0 1rem;">
+        <a>
+            <h3 class="title">
+                {{'suamnth'}}
+            </h3>
+        </a>
+
+        <p class="description">
+            user of online publishing platform since {{data()?.joinedOn | date}}
+        </p>
+    </div>
+    <div class="bottom-content">
+        <button [routerLink]="['author-details', data()?.userUid]" class="visit-button colored-button">
+            Visit
+            <span class="icon material-symbols-outlined">
+                open_in_new
+            </span>
+        </button>
+    </div>
+</article> -->
+<article class="reader_card card">
+    <img alt="" [src]="data()?.photoUrl" />
+    <div class="description_container">
+        <h3 class="head">
+            {{data()?.username}}
+        </h3>
+        <span class="description">
+            user of online publishing platform since  {{data()?.joinedOn | date}}
+        </span>
+    </div>
+    <div class="bottom-content">
+        <button [routerLink]="['author-details', data()?.userUid]" class="visit-button colored-button">
+            Visit
+            <span class="icon material-symbols-outlined">
+                open_in_new
+            </span>
+        </button>
+    </div>
+</article>
